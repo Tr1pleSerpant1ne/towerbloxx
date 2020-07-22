@@ -1,0 +1,24 @@
+#screen {
+	max-width: 600px;
+	height: 600px;
+	margin: 0 auto;
+	border: 2px solid black;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	background-color: #5DF2F4;
+	.block {
+		width: 200px;
+		height: 100px;
+		background-color: #FF3E3E;
+	}
+	.starter {
+		margin: 0 auto;
+	} 
+}
+#score {
+	text-align: center;
+	&-tx {
+		text-align: center;
+	}
+}
