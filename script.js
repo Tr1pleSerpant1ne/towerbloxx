@@ -20,6 +20,7 @@ function randColor() {
 }
 
 
+
 // ПЕРЕМЕННАЯ СКОРОСТИ
 let speedVar = 1;
 
@@ -37,7 +38,6 @@ function addBlock() {
 	blocks = document.querySelectorAll('.block'); // ОБНОВЛЕНИЕ МАССИВА СО ВСЕМИ БЛОКАМИ (НУЖНО В СЛЕДУЮЩИХ ФУНКЦИЯХ)
 
 
-
 	animate(block, speedVar); // НАЧАЛО АНИМАЦИИ
 }
 
@@ -45,6 +45,7 @@ function addBlock() {
 
 // АНИМАЦИЯ БЛОКА
 let animateInterval;
+
 function animate(block, speed) { // АНИМАЦИЯ
 	isRight = Boolean(Math.floor(Math.random() * 2)); // ДВИЖЕНИЕ ВПРАВО - ПРАВДА/ЛОЖЬ
 
@@ -63,8 +64,6 @@ function animate(block, speed) { // АНИМАЦИЯ
 			block.style.marginLeft = (parseInt(block.style.marginLeft) - speed) + 'px';
 		}
 	}
-
-
 	animateInterval = setInterval(marginAdd, 10)
 }
 
