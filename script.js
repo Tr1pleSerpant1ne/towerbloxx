@@ -20,6 +20,10 @@ function randColor() {
 }
 
 
+// ПЕРЕМЕННАЯ СКОРОСТИ
+let speedVar = 1;
+
+
 
 // ДОБАВИТЬ БЛОК
 function addBlock() {
@@ -32,15 +36,17 @@ function addBlock() {
 
 	blocks = document.querySelectorAll('.block'); // ОБНОВЛЕНИЕ МАССИВА СО ВСЕМИ БЛОКАМИ (НУЖНО В СЛЕДУЮЩИХ ФУНКЦИЯХ)
 
-	animate(block); // НАЧАЛО АНИМАЦИИ
+
+
+	animate(block, speedVar); // НАЧАЛО АНИМАЦИИ
 }
 
 
 
 // АНИМАЦИЯ БЛОКА
 let animateInterval;
-function animate(block) { // АНИМАЦИЯ
-	isRight = true; // ДВИЖЕНИЕ ВПРАВО - ПРАВДА/ЛОЖЬ
+function animate(block, speed) { // АНИМАЦИЯ
+	isRight = Boolean(Math.floor(Math.random() * 2)); // ДВИЖЕНИЕ ВПРАВО - ПРАВДА/ЛОЖЬ
 
 	function marginAdd() {
 		if (parseInt(block.style.marginLeft) >= 400) {
@@ -52,9 +58,9 @@ function animate(block) { // АНИМАЦИЯ
 		}
 
 		if (isRight == true) {
-			block.style.marginLeft = (parseInt(block.style.marginLeft) + 1) + 'px';
+			block.style.marginLeft = (parseInt(block.style.marginLeft) + speed) + 'px';
 		} else {
-			block.style.marginLeft = (parseInt(block.style.marginLeft) - 1) + 'px';
+			block.style.marginLeft = (parseInt(block.style.marginLeft) - speed) + 'px';
 		}
 	}
 
@@ -79,6 +85,10 @@ function gameOver() {
 // main() - навешивание листенеров
 function main() {
 	screen.addEventListener('click', function() {
+		// УВЕЛИЧЕНИЕ СКОРОСТИ
+		speedVar += 0.5;
+
+
 		stopAnimate(latestBlock); // ОСТАНОВКА АНИМАЦИИ ПРЕДЫДУЩЕГО БЛОКА
 
 		blocks = document.querySelectorAll('.block'); // ОБНОВЛЕНИЕ МАССИВА СО ВСЕМИ БЛОКАМИ
